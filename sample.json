@@ -1,0 +1,36 @@
+{
+    "guid": "smithwaterman-guid",
+    "name": "Smith-Waterman Algorithm",
+    "categories": ["Smith-Waterman", "FPGA", "SYCL", "Performance"],
+    "description": "An FPGA-accelerated implementation of the Smith-Waterman algorithm using SYCL",
+    "toolchain": ["icpx"],
+    "languages": [{"cpp": {"properties": {"projectOptions": [{"projectType": "makefile"}]}}}],
+    "targetDevice": ["FPGA"],
+    "os": ["linux"],
+    "builder": ["ide", "cmake"],
+    "ciTests": {
+      "linux": [
+        {
+          "id": "fpga_emu",
+          "steps": [
+            "mkdir build",
+            "cd build",
+            "cmake ..",
+            "make fpga_emu",
+            "./smith-waterman.fpga_emu",
+            "make clean"
+          ]
+        },
+        {
+          "id": "fpga_report",
+          "steps": [
+            "mkdir build",
+            "cd build",
+            "cmake ..",
+            "make report",
+            "make clean"
+          ]
+        }
+      ]
+    },
+  }

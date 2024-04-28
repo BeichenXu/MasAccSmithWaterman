@@ -7,8 +7,6 @@
 #include <sycl/ext/intel/fpga_extensions.hpp>
 #include <sycl/sycl.hpp>
 
-class SmithWaterman;
-
 // Global scoring constants
 constexpr int match_score = 2;
 constexpr int mismatch_penalty = 1;
@@ -21,12 +19,17 @@ std::pair<std::string, std::string> SmithWaterman(sycl::queue& q, const std::str
     int len_a = seq_a.length();
     int len_b = seq_b.length();
     
-    sycl::buffer<int, 2> score_matrix({len_a + 1, len_b + 1});
+    sycl::buffer<int, 2> score_matrix({static_cast<size_t>(len_a + 1), static_cast<size_t>(len_b + 1)});
     sycl::buffer<char> align_a(len_a);
     sycl::buffer<char> align_b(len_b);
+    
+    sycl::buffer<char> seq_a_buf(seq_a.begin(), seq_a.end());
+    sycl::buffer<char> seq_b_buf(seq_b.begin(), seq_b.end());
 
     q.submit([&](sycl::handler& h) {
         sycl::accessor score_acc(score_matrix, h, sycl::write_only, sycl::no_init);
+        sycl::accessor seq_a_acc(seq_a_buf, h, sycl::read_only);
+        sycl::accessor seq_b_acc(seq_b_buf, h, sycl::read_only);
         
         h.parallel_for<SmithWatermanKernel>(sycl::range<2>(len_a + 1, len_b + 1), [=](sycl::id<2> idx) {
             int i = idx[0];
@@ -35,9 +38,9 @@ std::pair<std::string, std::string> SmithWaterman(sycl::queue& q, const std::str
             if (i == 0 || j == 0) {
                 score_acc[idx] = 0;
             } else {
-                int score_diag = score_acc[{i - 1, j - 1}] + (seq_a[i - 1] == seq_b[j - 1] ? match_score : -mismatch_penalty);
-                int score_up = score_acc[{i - 1, j}] - gap_penalty;
-                int score_left = score_acc[{i, j - 1}] - gap_penalty;
+                int score_diag = score_acc[{static_cast<size_t>(i - 1), static_cast<size_t>(j - 1)}] + (seq_a_acc[i - 1] == seq_b_acc[j - 1] ? match_score : -mismatch_penalty);
+                int score_up = score_acc[{static_cast<size_t>(i - 1), static_cast<size_t>(j)}] - gap_penalty;
+                int score_left = score_acc[{static_cast<size_t>(i), static_cast<size_t>(j - 1)}] - gap_penalty;
                 score_acc[idx] = sycl::max(0, sycl::max(score_diag, sycl::max(score_up, score_left)));
             }
         });
@@ -52,12 +55,12 @@ std::pair<std::string, std::string> SmithWaterman(sycl::queue& q, const std::str
     while (m > 0 && n > 0) {
         sycl::host_accessor score_acc(score_matrix, sycl::read_only);
         
-        if (seq_a[m - 1] == seq_b[n - 1] && score_acc[{m, n}] == score_acc[{m - 1, n - 1}] + match_score) {
+        if (seq_a[m - 1] == seq_b[n - 1] && score_acc[{static_cast<size_t>(m), static_cast<size_t>(n)}] == score_acc[{static_cast<size_t>(m - 1), static_cast<size_t>(n - 1)}] + match_score) {
             align_a_str[m - 1] = seq_a[m - 1];
             align_b_str[n - 1] = seq_b[n - 1];
             m--;
             n--;
-        } else if (score_acc[{m, n}] == score_acc[{m - 1, n}] - gap_penalty) {
+        } else if (score_acc[{static_cast<size_t>(m), static_cast<size_t>(n)}] == score_acc[{static_cast<size_t>(m - 1), static_cast<size_t>(n)}] - gap_penalty) {
             align_a_str[m - 1] = seq_a[m - 1];
             align_b_str[n - 1] = '-';
             m--;  

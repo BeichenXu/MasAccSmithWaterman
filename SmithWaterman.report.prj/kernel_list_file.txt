@@ -1,0 +1,2 @@
+USE_ME_VERBATIM:SmithWaterman_report_di
+SmithWatermanKernel

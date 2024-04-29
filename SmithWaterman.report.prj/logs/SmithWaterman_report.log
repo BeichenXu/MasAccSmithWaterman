@@ -1,0 +1,1 @@
+Compiler Command: aoc -o /home/u217848/tmp/lambda_buffer-4548da-664e4c.aocr /home/u217848/tmp/icpx-1c0fae7408/lambda_buffer-a1bda4-66b8ff.spv -sycl -rtl -dep-files=/home/u217848/tmp/icpx-1c0fae7408/lambda_buffer.cpp-31fa41.d -output-report-folder=SmithWaterman.report.prj -g -hardware -target=Agilex7

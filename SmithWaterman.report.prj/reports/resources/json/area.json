@@ -1,0 +1,907 @@
+{
+  "columns":
+  ["", "ALUTs", "FFs", "RAMs", "DSPs", "MLABs", "Frac. DSPs", "Details"]
+  , "dsp_packing_factor":2
+  , "type":"module"
+  , "total_percent":
+  [0.834404349, 0.668103456, 0.247146621, 0.196905762, 0.243902445]
+  , "total":
+  [5690, 7345, 14, 11, 41, 5]
+  , "name":"Kernel System"
+  , "max_resources":
+  [974400, 2971920, 7110, 4510, 48720]
+  , "children":
+  [
+    {
+      "name":"Global interconnect"
+      , "type":"resource"
+      , "data":
+      [693, 1328, 0, 0, 0, 0]
+      , "details":
+      [
+        {
+          "type":"table"
+          , "Name":"0"
+          , "Interconnect Style":"tree"
+          , "Reads":"5"
+          , "Writes":"1"
+        }
+        , {
+          "type":"text"
+          , "text":"Global interconnect for 5 global loads and 1 global store. Reduce number of global loads and stores to simplify global interconnect."
+        }
+        , {
+          "type":"brief"
+          , "text":"For 5 global loads and 1 global store."
+        }
+        , {
+          "type":"text"
+          , "text":"See %L for more information"
+          , "links":
+          [
+            {
+              "guide":"FPGA Handbook : Global Memory"
+              , "link":"https://www.intel.com/content/www/us/en/docs/oneapi-fpga-add-on/developer-guide/current/memory-types.html#GLOBAL_MEMORY"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"SmithWatermanKernel"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [0.725367367, 0.596982777, 0.202461705, 0.196905762, 0.243902445]
+      , "total_kernel_resources":
+      [4997, 6017, 14, 11, 41, 5]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+        , {
+          "type":"brief"
+          , "text":"1 compute unit."
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1463, 1467, 0, 0, 6, 0]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+            , {
+              "type":"brief"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"SmithWatermanKernel.B0"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [277, 2250, 3, 0, 8, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [277, 2250, 3, 0, 8, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [235, 441, 11, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [331, 0, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Pointer Computation"
+                      , "type":"resource"
+                      , "count":5
+                      , "data":
+                      [320, 0, 0, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1538 > accessor.hpp:1362"
+                  , "type":"resource"
+                  , "data":
+                  [128, 0, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1538
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1362
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Pointer Computation"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [128, 0, 0, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1538 > accessor.hpp:1362 > \naccessor.hpp:2526 > helpers.hpp:268 > \nhelpers.hpp:264 > accessor.hpp:2527"
+                  , "type":"resource"
+                  , "data":
+                  [217, 221, 0, 4, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1538
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1362
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2526
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":268
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":264
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2527
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [217, 221, 0, 4, 0, 2]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1538 > accessor.hpp:1362 > \naccessor.hpp:2526 > helpers.hpp:268 > \nhelpers.hpp:264 > accessor.hpp:2530"
+                  , "type":"resource"
+                  , "data":
+                  [62, 0, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1538
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1362
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2526
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":268
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":264
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2530
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [62, 0, 0, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:38"
+                  , "type":"resource"
+                  , "data":
+                  [12, 2, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":38
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"1-bit Select"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 1, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 1, 0, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:39"
+                  , "type":"resource"
+                  , "data":
+                  [46, 136, 0, 0, 2, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":39
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [46, 136, 0, 0, 2, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:39 > \naccessor.hpp:2354 > accessor.hpp:1286 > \nhelpers.hpp:268 > helpers.hpp:264 > \naccessor.hpp:1287"
+                  , "type":"resource"
+                  , "data":
+                  [248, 221, 0, 4, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":39
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2354
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1286
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":268
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":264
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1287
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [31, 0, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [217, 221, 0, 4, 0, 2]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:41"
+                  , "type":"resource"
+                  , "data":
+                  [750, 564, 0, 0, 13, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":41
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [32, 0, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Select"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [31, 0, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"8-bit Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [3, 0, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [684, 564, 0, 0, 13, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:41 > \naccessor.hpp:2354 > accessor.hpp:1286 > \nhelpers.hpp:268 > helpers.hpp:264 > \naccessor.hpp:1287"
+                  , "type":"resource"
+                  , "data":
+                  [240, 169, 0, 3, 0, 1]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":41
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2354
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1286
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":268
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":264
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1287
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [62, 0, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [178, 169, 0, 3, 0, 1]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:41 > \naccessor.hpp:2355"
+                  , "type":"resource"
+                  , "data":
+                  [128, 0, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":41
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2355
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Pointer Computation"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [128, 0, 0, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:42"
+                  , "type":"resource"
+                  , "data":
+                  [232, 188, 0, 0, 5, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":42
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [232, 188, 0, 0, 5, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:42 > \naccessor.hpp:2354 > accessor.hpp:1286 > \nhelpers.hpp:268 > helpers.hpp:264 > \naccessor.hpp:1287"
+                  , "type":"resource"
+                  , "data":
+                  [62, 0, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":42
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2354
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1286
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":268
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":264
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1287
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [62, 0, 0, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:43"
+                  , "type":"resource"
+                  , "data":
+                  [232, 188, 0, 0, 5, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":43
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [232, 188, 0, 0, 5, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:43 > \naccessor.hpp:2354 > accessor.hpp:1286 > \nhelpers.hpp:268 > helpers.hpp:264 > \naccessor.hpp:1287"
+                  , "type":"resource"
+                  , "data":
+                  [62, 0, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":43
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2354
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1286
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":268
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":264
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1287
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [62, 0, 0, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:44"
+                  , "type":"resource"
+                  , "data":
+                  [46, 136, 0, 0, 2, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":44
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [46, 136, 0, 0, 2, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Pipelined LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Pipelined LSU"
+                        }
+                      ]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:44 > \naccessor.hpp:2354 > accessor.hpp:1286 > \nhelpers.hpp:268 > helpers.hpp:264 > \naccessor.hpp:1287"
+                  , "type":"resource"
+                  , "data":
+                  [31, 0, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":44
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":2354
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1286
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":268
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/helpers.hpp"
+                        , "line":264
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/accessor.hpp"
+                        , "line":1287
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [31, 0, 0, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"handler.hpp:1540 > lambda_buffer.cpp:44 > \nbuiltins_legacy_scalar.hpp:626 > builtins.hpp:222"
+                  , "type":"resource"
+                  , "data":
+                  [195, 33.9999924, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/handler.hpp"
+                        , "line":1540
+                      }
+                      , {
+                        "filename":"/home/u217848/smithwaterman/src/lambda_buffer.cpp"
+                        , "line":44
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/builtins_legacy_scalar.hpp"
+                        , "line":626
+                      }
+                      , {
+                        "filename":"/glob/development-tools/versions/oneapi/2024.1/oneapi/compiler/2024.1/bin/compiler/../../include/sycl/detail/builtins.hpp"
+                        , "line":222
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Select"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [31, 0, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"llvm.smax"
+                      , "type":"resource"
+                      , "count":9
+                      , "data":
+                      [164.000031, 33.9999924, 0, 0, 0, 0]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

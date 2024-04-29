@@ -1,0 +1,190 @@
+<KERNEL_LIST>
+	<PROGRAM_GLOBAL_MEM_SIZE value="0" />
+	<ENABLE_HYPER_OPTIMIZATIONS value="1" />
+	<USE_SYNC_RESET value="1" />
+	<TOP_LEVEL_RESET_EXTENDER value="0" />
+	<ENABLE_STALL_LATENCY value="1" />
+	<ENABLE_ECC value="0" />
+	<RESET_FOR_REUSE value="0" />
+	<GLOBAL_WRITE_LSU_IC_DATA_LATENESS value="0" />
+	<GLOBAL_READ_LSU_IC_DATA_LATENESS value="0" />
+	<GLOBAL_LSU_IC_WIDE_DATA_SLICING value="0" />
+	<ALLOW_HIGH_SPEED_FIFO_USAGE value="0" />
+	<INTERNAL_MEMORIES>
+			<DATA>
+			</DATA>
+	</INTERNAL_MEMORIES>
+	<KERNEL_BUNDLE name="_ZTS19SmithWatermanKernel" kname="SmithWatermanKernel" compute_units="1">
+	<KERNEL name="_ZTS19SmithWatermanKernel" kname="SmithWatermanKernel" filename="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_function_wrapper.sv" entity_name="SmithWatermanKernel_function_wrapper" version="1" cosim_name="" report_name="SmithWatermanKernel" enable_global_profiling="1" is_streaming="false" use_external_stall_valid="false" use_finish_detector="true" workgroup_invariant="1" workitem_invariant="0" has_global_atomics="0" num_vector_lanes="1" num_profiling_signals="0" cra_size="256" is_stall_free_return="1">
+		<RESOURCE_INFO>
+			<ID value="0" />
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="0" />
+			<MAX_WORK_GROUP_SIZE num="1" values="2147483647" />
+			<REQUIRED_WORK_GROUP_SIZE x="0" y="0" z="0" />
+			<FAST_RELAUNCH_DEPTH value="1" />
+			<USES_GLOBAL_WORK_OFFSET value="1" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="agent" cosim_name="SmithWatermanKernel_function_cra_agent" read="1" write="1" width="64" is_volatile="0" size="256" latency="0" config_id="0" base_address="0" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="ip/linux64/lib/dspba/Libraries/sv/base/dspba_library_ver.sv" />
+			<FILE name="ip/acl_ecc_pkg.sv" />
+			<FILE name="ip/acl_data_fifo.v" />
+			<FILE name="ip/acl_fifo.v" />
+			<FILE name="ip/acl_altera_syncram_wrapped.sv" />
+			<FILE name="ip/acl_scfifo_wrapped.sv" />
+			<FILE name="ip/acl_ecc_decoder.sv" />
+			<FILE name="ip/acl_ecc_encoder.sv" />
+			<FILE name="ip/acl_ll_fifo.v" />
+			<FILE name="ip/acl_ll_ram_fifo.v" />
+			<FILE name="ip/acl_valid_fifo_counter.v" />
+			<FILE name="ip/acl_dspba_valid_fifo_counter.v" />
+			<FILE name="ip/acl_staging_reg.v" />
+			<FILE name="ip/hld_fifo.sv" />
+			<FILE name="ip/acl_mid_speed_fifo.sv" />
+			<FILE name="ip/acl_latency_one_ram_fifo.sv" />
+			<FILE name="ip/acl_latency_zero_ram_fifo.sv" />
+			<FILE name="ip/hld_fifo_zero_width.sv" />
+			<FILE name="ip/acl_high_speed_fifo.sv" />
+			<FILE name="ip/acl_low_latency_fifo.sv" />
+			<FILE name="ip/acl_zero_latency_fifo.sv" />
+			<FILE name="ip/acl_fanout_pipeline.sv" />
+			<FILE name="ip/acl_std_synchronizer_nocut.v" />
+			<FILE name="ip/acl_tessellated_incr_decr_threshold.sv" />
+			<FILE name="ip/acl_tessellated_incr_lookahead.sv" />
+			<FILE name="ip/acl_reset_handler.sv" />
+			<FILE name="ip/acl_lfsr.sv" />
+			<FILE name="ip/acl_mlab_fifo.sv" />
+			<FILE name="ip/acl_parameter_assert.svh" />
+			<FILE name="ip/acl_dspba_buffer.v" />
+			<FILE name="ip/acl_full_detector.v" />
+			<FILE name="ip/acl_tessellated_incr_decr_decr.sv" />
+			<FILE name="ip/lsu_top.v" />
+			<FILE name="ip/lsu_permute_address.v" />
+			<FILE name="ip/lsu_pipelined.v" />
+			<FILE name="ip/lsu_enabled.v" />
+			<FILE name="ip/lsu_basic_coalescer.v" />
+			<FILE name="ip/lsu_simple.v" />
+			<FILE name="ip/lsu_streaming.v" />
+			<FILE name="ip/lsu_burst_host.v" />
+			<FILE name="ip/lsu_bursting_load_stores.v" />
+			<FILE name="ip/lsu_non_aligned_write.v" />
+			<FILE name="ip/lsu_read_cache.v" />
+			<FILE name="ip/lsu_atomic.v" />
+			<FILE name="ip/lsu_prefetch_block.v" />
+			<FILE name="ip/lsu_wide_wrapper.v" />
+			<FILE name="ip/lsu_streaming_prefetch.v" />
+			<FILE name="ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="ip/acl_toggle_detect.v" />
+			<FILE name="ip/acl_debug_mem.v" />
+			<FILE name="ip/lsu_burst_coalesced_pipelined_write.sv" />
+			<FILE name="ip/lsu_burst_coalesced_pipelined_read.sv" />
+			<FILE name="ip/acl_fifo_stall_valid_lookahead.sv" />
+			<FILE name="ip/hld_global_load_store.sv" />
+			<FILE name="ip/hld_lsu.sv" />
+			<FILE name="ip/hld_lsu_burst_coalescer.sv" />
+			<FILE name="ip/hld_lsu_coalescer_dynamic_timeout.sv" />
+			<FILE name="ip/hld_lsu_data_aligner.sv" />
+			<FILE name="ip/hld_lsu_read_cache.sv" />
+			<FILE name="ip/hld_lsu_read_data_alignment.sv" />
+			<FILE name="ip/hld_lsu_unaligned_controller.sv" />
+			<FILE name="ip/hld_lsu_word_coalescer.sv" />
+			<FILE name="ip/hld_lsu_write_data_alignment.sv" />
+			<FILE name="ip/hld_lsu_write_kernel_downstream.sv" />
+			<FILE name="ip/acl_shift_register_no_reset.sv" />
+			<FILE name="ip/acl_sync.sv" />
+			<FILE name="ip/hld_sim_latency_tracker.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_function_wrapper.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_function.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_bb_B0.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_B0_branch.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_B0_branch_branch_storage.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_B0_merge.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_B0_merge_storage.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_bb_B0_stall_region.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_mem_lm100000termankernel_361_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_mem_lm120000termankernel_375_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_mem_lm6_0000termankernel_333_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_mem_lm8_0000termankernel_347_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_mem_lm_s0000termankernel_319_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_mem_unna0000termankernel_438_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_sfc_s_c0_in_entry_0000atermankernel_51_2gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sfc_exit0000termankernel_303_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sfc_exit000060_1gr_full_detector.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sfc_exit0000el_303_1gr_data_fifo.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_sfc_logic_s_c0_in_0000atermankernel_60_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sync_buf0000termankernel_151_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sync_buf0000termankernel_236_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sync_buf0000termankernel_201_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sync_buf0000termankernel_211_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sync_buf0000termankernel_176_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sync_buf0000atermankernel_68_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sync_buf0000atermankernel_95_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sync_buf0000termankernel_122_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_sfc_s_c1_in_entry_0000watermankernel_51_10.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sfc_exit0000termankernel_430_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sfc_exit000091_1gr_full_detector.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_llvm_fpga_sfc_exit0000el_430_1gr_data_fifo.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_i_sfc_logic_s_c1_in_0000termankernel_391_0gr.sv" />
+			<FILE name="kernel_hdl/SmithWatermanKernel/SmithWatermanKernel_function_cra_agent.sv" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="lm10_SmithWatermanKernel" cosim_name="" type="host" width="64" true_lsu_width="32" burstwidth="1" pipelined="true" addr_space="__global" aspace_id="1024" optype="read" criticality="8" buffer_location="0" group_id="0" connected_to_agent="0" />
+			<INTERFACE port="lm12_SmithWatermanKernel" cosim_name="" type="host" width="64" true_lsu_width="32" burstwidth="1" pipelined="true" addr_space="__global" aspace_id="1024" optype="read" criticality="8" buffer_location="0" group_id="0" connected_to_agent="0" />
+			<INTERFACE port="lm6_SmithWatermanKernel" cosim_name="" type="host" width="64" true_lsu_width="8" burstwidth="1" pipelined="true" addr_space="__global" aspace_id="1024" optype="read" criticality="8" buffer_location="0" group_id="0" connected_to_agent="0" />
+			<INTERFACE port="lm8_SmithWatermanKernel" cosim_name="" type="host" width="64" true_lsu_width="8" burstwidth="1" pipelined="true" addr_space="__global" aspace_id="1024" optype="read" criticality="8" buffer_location="0" group_id="0" connected_to_agent="0" />
+			<INTERFACE port="lm_SmithWatermanKernel" cosim_name="" type="host" width="64" true_lsu_width="32" burstwidth="1" pipelined="true" addr_space="__global" aspace_id="1024" optype="read" criticality="8" buffer_location="0" group_id="0" connected_to_agent="0" />
+			<INTERFACE port="unnamed_SmithWatermanKernel1_SmithWatermanKernel" cosim_name="" type="host" width="64" true_lsu_width="32" burstwidth="1" pipelined="true" addr_space="__global" aspace_id="1024" optype="write" criticality="8" buffer_location="0" group_id="0" connected_to_agent="0" />
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="arg_score_acc" cosim_name="" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" is_streaming="false" size="8" streaming_width="64" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="char*" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_score_acc1" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" is_streaming="false" size="16" streaming_width="128" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="class.sycl::_V1::range" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_score_acc2" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" is_streaming="false" size="16" streaming_width="128" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="class.sycl::_V1::range" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_score_acc4" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" is_streaming="false" size="16" streaming_width="128" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="class.sycl::_V1::range" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_seq_a_acc" cosim_name="" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" is_streaming="false" size="8" streaming_width="64" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="char*" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_seq_a_acc6" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" is_streaming="false" size="8" streaming_width="64" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="class.sycl::_V1::range.0" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_seq_a_acc7" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" is_streaming="false" size="8" streaming_width="64" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="class.sycl::_V1::range.0" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_seq_a_acc9" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" is_streaming="false" size="8" streaming_width="64" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="class.sycl::_V1::range.0" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_seq_b_acc" cosim_name="" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" is_streaming="false" size="8" streaming_width="64" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="char*" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_seq_b_acc11" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" is_streaming="false" size="8" streaming_width="64" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="class.sycl::_V1::range.0" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_seq_b_acc12" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" is_streaming="false" size="8" streaming_width="64" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="class.sycl::_V1::range.0" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+			<ARGUMENT name="arg_seq_b_acc14" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" is_streaming="false" size="8" streaming_width="64" streaming_cra_port="" is_stable="false" alignment="1" type_qualifier="" access_qualifier="none" type_name="class.sycl::_V1::range.0" host_accessible="" pipe_channel_id="" >
+			</ARGUMENT>
+		</KERNEL_ARGS>
+		<IPS>
+		</IPS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+	</KERNEL_BUNDLE>
+	<GLOBAL_MEM_LATENCY kernel_side_mem_latency="8" arbitration_latency="6" />
+	<STRUCT_TYPE_DEFS>
+	</STRUCT_TYPE_DEFS>
+	<KERNEL_INTERCONNECT>
+		<USM_INTERCONNECT value="0" />
+		<GLOBAL_ATOMICS value="0" />
+		<GLOBAL_INTERCONNECT gmem_id="0" name="0" type="0" />
+		<GLOBAL_READS memory="0" aspace="1024" />
+		<GLOBAL_READS memory="0" aspace="1024" />
+		<GLOBAL_READS memory="0" aspace="1024" />
+		<GLOBAL_READS memory="0" aspace="1024" />
+		<GLOBAL_READS memory="0" aspace="1024" />
+		<GLOBAL_WRITES memory="0" aspace="1024" />
+	</KERNEL_INTERCONNECT>
+</KERNEL_LIST>
